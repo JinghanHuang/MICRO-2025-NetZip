@@ -64,12 +64,10 @@ Collect training data from large language models for analysis:
 
 ```bash
 cd data_collection
-python data_collection.py \
-    --model_name "meta-llama/Llama-3.2-1B" \
-    --num_steps 2
+./run1.sh
 ```
 
-**Parameters:**
+**Parameters:** (data_collection.py)
 - `--model_name`: HuggingFace model identifier
 - `--num_steps`: Number of training steps to collect
 
@@ -79,14 +77,10 @@ Analyze compression ratios for different algorithms:
 
 ```bash
 cd compression_ratio_calculation
-python compression_ratio_calculation.py \
-    --dir_step0 Llama-3.2-1B_step_0/ \
-    --dir_step1 Llama-3.2-1B_step_1/ \
-    --output_dir results/ \
-    --num_workers 16
+./run2.sh
 ```
 
-**Parameters:**
+**Parameters:** (compression_ratio_calculation.py)
 - `--dir_step0`: Directory containing previous step data
 - `--dir_step1`: Directory containing current step data
 - `--output_dir`: Output directory for results
@@ -100,10 +94,10 @@ Run large-scale simulations with different model sizes and network configuration
 cd large_scale_simulation
 ./get_SimAI.sh
 cd script
-./run.sh 7B dcn_512 128 400
+./run3.sh
 ```
 
-**Parameters:**
+**Parameters:** (run.sh)
 - **Model Size**: `7B`, `70B`, `175B`, or `405B` (model parameter count)
 - **Topology**: `dcn_512` (data center network topology with 512 nodes)
 - **Global Batch Size**: `128` (global batch size)
