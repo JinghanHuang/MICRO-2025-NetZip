@@ -41,9 +41,7 @@ cd MICRO-2025-NetZip
 
 ```bash
 # Run with NVIDIA PyTorch container
-sudo docker run -it --rm \
-    -v $(pwd):/workspace/NetZip \
-    nvcr.io/nvidia/pytorch:25.02-py3
+./start_docker.sh
 
 # Inside container
 cd /workspace/NetZip
